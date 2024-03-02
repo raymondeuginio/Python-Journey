@@ -400,7 +400,7 @@ Error and Exception
         dan bahkan kita bisa memunculkan tulisan yang kita mau di errornya
         raise TypeError("This is an error that i made up.")
 
-JSON Built-in Python
+JSON Built-in Python.
     untuk menggunakannya kita tinggal import json.
     Write -> json.dump(namadict, data_file, indent=4)
         data yang dimasukkan disini (namadict) berupa dictionary
