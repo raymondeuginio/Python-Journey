@@ -1,0 +1,413 @@
+Data type sama kea c++ tapi bedanya gada double, long, maupun longlong
+untuk ngeluarin output pake PRINT. sementara untuk nyimpen input pake variabel = input
+
+casting buat nyimpen tipe data. misal int(input(""))
+        ngecek tipe data = type(namavariabel)
+
+ada juga beberapa kemudahan dibanding c++ untuk operasi aritmatikanya
+        buat pangkat pake **
+        buat floor division //
+
+operasi bitwise
+        and, or, xor(harus beda), ~(not), shifting(<< angkanya geser)
+
+perlakuan string
+        backslash (\ untuk mengecualikan suatu symbol)
+        tab (\t)
+        newline (\n atau \r\n)
+        literal string """ """ bisa ditambahin raw jadi pake r"""
+
+        concate (+)
+        panjang string (len(variabel))
+        ngecek komponen char (a in varibel)
+        method ngitung banyak o (data.count("o"))
+
+        ngubah ke upper/lower variabel = variabel.upper()
+        ngecek apakah upper/lower hasilnya bool = variabel.islower()
+        isalpha() <-- mengecek semua huruf dan ga kosong
+        isdecimal() <-- angka saja
+        isnum () <-- huruf dan angka aplha numeric
+        isspace () <-- spasi, tab, newline, \namavariabel
+        istittle()<-- semua kata dimulai dengan huruf besar
+
+        mengatur lebar (rjust hanya bisa di string)
+        variabel.rjust(10)
+        variabel:>13
+
+date dan time
+        import datetime as dt
+        dt.date.today() <- buat ngecek hari ini kalo mo liat harinya doang pake %A    K
+        dt.date(2005,4,6) <- buat ngecek hari pada tanggal yang dimasukin.
+
+IF dan Else
+        ga perlu pake {} cukup pake : 
+        jangan lupa indentasi penting.
+
+For Loop
+        bentuknya for i in range(angka):
+                    aksi
+        i disini merupakan variabel baru yang dibuat ketika loop ini.
+        setiap loop akan dimulai dari i = 0
+
+Continue, berfungsi untuk ngeskip kondisi dibawah continue dan ngelanjutin ke loop lagi
+
+List[].
+dalam built in python tidak ada array kecuali menggunakan numpy.
+        Manipulasi list
+            info berapa banyak data di list len(listnya)
+            info berapa banyak item di list namalist.count(item)
+            info suatu item ada di list ke berapa namalist.index(item)
+            nambahin item ke list 
+                data.insert(posisi,itemnya)
+                data.append("bababab") -> buat di akhir.
+                datalama.extend(data_baru) 
+                data.remove(item)
+                data.pop() ->remove data paling belakang.
+                variabel = data.pop() -> ngambil item terakhir.
+
+        mengurutkan list
+        namalist.sort() -> ini ga perlu variabel lagi dan skrg list tsb sudah ke sort semua.
+        namalist.sort(key=len) -> ini berdasarkan panjang 
+
+        membalikkan list
+        namalist.reverse()
+
+        mengcopy list (kalo list1 = list2 nnti addressnya sama)
+        list2 = list1.copy()
+            kalo nestedlist di copy kemudian item didalamnya diubah, list lama juga akan kerubah karena addressnya sama
+            untuk itu menggunakan deep copy (from copy import deepcopy)
+            listbaru = deepcopy(listlama)
+
+        gabungin komponen join() dan split() buat list.
+            gabung = ' '.join(pisah) tanda ' ' buat ngasih tau diantara list dikasih apakah
+            pisah = gabungan.split('ehm') jadi semua bakal balik jadi list lagi.
+
+        list comprehension
+            rumusnya adalah new_list = [new_item for item in list if test]
+            variabel = [i**2 for i in data] ini bakal ngekuadratin semua i di dalam list data.
+            [print(i) for i in data] data merupakan list.
+
+            Example 2: kita akan membuat list baru dari suatu list yang isinya +1 dari list sblmnya
+            numbers = [1,2,3]
+            - tanpa list comprehension
+                new_list = [] -> bikin list kosong
+                for n in numbers: -> looping tiap index
+                    add1 = n + 1 -> tiap iterasi index tambahin 1
+                    new_list.append(add1) -> nambahin variabel itu ke list kosong
+           
+             - dengan list comprehension
+                new_list = [n+1 for n in numbers] -> looping dan metmatikanya sudah ada didalamnya
+
+
+        Enumerate (ngambil indexnya dan datanya)
+        for index,data in enumerate(namalist):
+            print(f"index = {index}, data={data})
+
+        Slicing
+            selain untuk list bisa juga untuk tuples
+            bentuknya seperti ini 
+            namalist = ["a","b","c","d","e","f"]
+            namalist[awal:akhir] -> menentukan index awalnya yang mana akhirnya yang mana
+            namalist[awal:] -> menentukan start dari index berapa
+            namalist[:akhir] -> menentukan end di index berapa
+            namalist[awal:akhir:increment] -> menentukan longkap berapa
+
+Tuples dan set
+        tuples menggunakan kurung ()
+            data tuples itu gabisa diubah
+            datatuples[1]="bubu" ini ga support assignment
+            datatuples.append(1) ini jg gabisa
+            kegunaan data tuples itu diambil dari variabel lain trus disimpen yang memang tujuannya bukan untuk diubah
+
+        sets menggunakan kurung {}
+            sebuah collection yang dia gapunya index jadi emang cuman kumpulan aja
+            print(datasets[0]) ini gabisa diambil.
+
+Dictionary (dict) -> associative array
+        kalo di list kita akses data menggunakan index, 
+        sementara klo Dictionary kita menggunakan identifier -> key
+        variabel = {
+            'key1': 'value1',
+            'key2': 'value2',
+            'list': namalist bisa dimasukin list juga coy
+        }
+        dictionary juga pake kurung {} pembedanya dengan set adalah si : nya, kalo set kan langsung koma.
+
+        bedanya dengan list adalah cara mengakses datanya 
+        list -> print(namalist[index ke berapa])
+        dict -> -keys
+                    print(namadict.keys()) -> hasilnya dict_keys([key1,key2,key3,key-n])
+                    for key in namadict:
+                        print(key)
+                -values (dari sebuah key)
+                    print(namadict.values()) -> hasilnya dict_values([value1,value2,value3,value-n])
+                    print(namadict[key yang mana?])
+                    print(namadict.get("namakey","output yng kita mau kalo gada"))
+                    for value in namadict.keys():
+                        print(namadict[value]) atau print(namadict.get(value))
+                -items (gabungan (sepaket) key dan valuenya)
+                    print(namadict.items()) -> hasilnya dict_items([('key1', 'value1'), ('key2', 'value2')])
+                    for item in namadict.items():
+                        print(item)
+                -looping mengeluarkan key dan value dari item
+                    for key,value in namadict.items():
+                        print(f"key = {key}, value = {value}")
+
+        informasi pajang dictionary (berapa banyak key)
+            LENDICT = len(data_dict)
+        
+        mengecek key (bukan value ya) -> hasilnya true/false
+            variabel = keyyangdicari in data_dict
+        
+        mengupdate dan menambah dictionary
+            data_dict["nama key"]="item"
+            data_dict.update({"namakey":"item"})
+        
+        mendelete data
+            del data_dict["namakey"]
+
+        mengcopy dictonary (kalo dict1 = dict2 nnti addressnya sama)
+        dict2 = dict1.copy()
+            #kalo nestedlist di copy kemudian item didalamnya diubah, list lama juga akan kerubah karena addressnya sama
+            #untuk itu menggunakan deep copy (from copy import deepcopy)
+            #dictbaru = deepcopy(listlama)
+
+        pop dictionary (mentransfer)
+            pop (berdasarkan key)
+            variabel = namadict.pop("key1")
+                maka value dari key1 akan ditransfer ke variabel.
+                key1 akan menghilang dari isi namadict.
+            popitem (item terakhir)
+            variabel = namadict.popitem()
+                maka value dari key terakhir akan ditransfer ke variabel
+                key terakhir akan menghilang dari isi namadict.
+
+        dictionary comprehension
+            rumusnya
+                new_dict = {new_key:new_value for item in list}
+                new_dict = {new_key:new_value for (key,value) in dict.items() if test}
+
+Function / method  
+        def namafungsi(parameter/argumen/input):
+            """ ini adalah DOCSTRING yang gunanya sebagai deskripsi atau panduan yang akan muncul ketika
+            kita menghover si namafungsi~"""
+            isi fungsi
+        
+        default argumen
+            fungsi yang seharusnya menerima argumen/parameter tapi ketika gadimasukin
+            tetep mengeluarkan output
+                def namafungsi (parameter = variabel)
+                    isi fungsi
+                namafungsi(parameter1)
+                namafungsi() <- maka parameternya akan dianggap sebagai variabel
+            
+        *args
+            fungsinya adalah membebaskan isi parameternya mau brp banyak sehingga dinamik (alias ga pasti jumlahnya/input ke parameternya).
+            def namafungsi(*args) -> disini tidak harus args tapi bisa nama yang lain
+            tipe args disini adalah tuple, dan dia bisa diiterasi
+
+        **kwargs
+            fungsi dengan keyword, sehingga kita bisa buat option dengan fungsinya.
+                def namafungsi (**kwargs):
+                    print(kwargs) -> ini bakal membentuk dictionary
+                namafungsi(variabel1 = item1, variabel2= item2)
+            tipe kwargs disini berupa dictionary dengana variabel1 dan 2 menjadi sebuah key dan item menjadi itemnya.
+            contoh lain:
+                Class Car:
+                    def __init__ (self,**kw):
+                        self.make = kw["make"] -> jika kita membuat seperti ini maka harus dideclare make= pada saat membuat objek
+                        self.model = kw.get("model") -> namun jika menggunakan get maka ketika tidak dideclare akan menjadi none.
+                #kita membuat objek dari mobil tsb
+                my_car = Car(make="Nissan",model="GT-R")
+        
+        First_class objects
+            suatu fungsi bisa diperlakukan sebagai argumen selayaknya interger/string/float etc.
+            misalkan seperti ini:
+            1. def add(n1,n2):
+            2.    return n1+n2
+            3.
+            4. def multiply(n1,n2):
+            5.    return n1*n2
+            6.
+            7. def calculate(calc_func,n1,n2):
+            8.    return calc_func(n1,n2)
+            9.
+            10.calculate(add,2,3)
+            11.calculate(multiply,2,3)
+
+            disini program bisa menangkap mana fungsi yang ingin dipanggil dan digunakan, add dan multiply pada baris 10 dan 11 dimasukan kedalam
+            fungsi calculate sebagai argumen/parameter kemudian didalam fungsi calculate mereturn dengan melakukan pemanggilan terhadap fungsi tersebut.
+
+        Python @Decorator 
+            Decorator memungkinkan kita untuk memodifikasi suatu fungsi. Decorator mengizinkan kita menggabungkan fungsi lain 
+            untuk memperluas perilaku fungsi yang dibungkus, tanpa mengubahnya secara permanen mirip dengan Overide pada konsep OOP. Contohnya sebagai berikut:
+                    def hi_decorator(function):
+                        def wrapper_function():
+                            print("~this is decorator~")
+                            function()
+                        return wrapper_function
+
+                    @hi_decorator # ini menandakan bahwa fungsi ini 'didekorasi'
+                    def say_hello():
+                        print("hello")
+
+                    @hi_decorator
+                    def say_bye():
+                        print("Bye")
+
+                    def say_greeting():
+                        print("How are you?")
+
+                    say_hello()
+            dengan menggunakan hi_decorator kita menjadi lebih mudah memodifikasi banyak fungsi dengan add-on yang sama (ditandai dengan @) tanpa harus menuliskannya berulang kali,
+            selain itu kita juga tidak 'mengubah' fungsi secara langsung. sehingga ketika perintah say_hello() dijalankan maka outputnya adalah ~this is decorator~ kemudian baris berikutnya adalah hello.
+            
+            Cara lain untuk menggunakan decorator function selain menggunakan @ adalah dengan memasukkan suatu fungsi sebagai parameter kedalam decorator functionnya
+            misalkan fungsi say_greeting tidak memiliki @ diatasnya,
+                    decorated_greetings = hi_decorator(say_greeting)
+                    decorated_greetings()
+            ini juga akan menghasilkan output yang serupa.
+
+        Anonymous & Lambda Function
+            output = lambda argument: expression
+            kegunaanya sebagai function singkat 
+                sort -> namalist.sort(key = lambda nama:len(nama)) // ini bakal ngurutin by banyak karakter
+                filter -> var = list(filter(lambda x:x<5,var2)) // mengeluarkan angka yang kurang dari 5
+
+            Anonymous
+                def pangkat (n):
+                    return lambda angka:angka**n
+                pangkat2 = pangkat(2) -> ini adalah fungsi yang berbasis fungsi pangkat
+                print(f"pangkat 2 = {pangkat2(5)}")
+
+Module (di taro didalam package)
+    import fungsinya untuk mengambil program dari file external .py
+        1. Menyambung program (import filelain)
+        2. import dengan data (variabel/fungsi/class dari file lain)
+           import file (namespacenya variabel)
+           cara aksesnya print(file.data)
+        
+        (1 folder sama) 
+            Cara membuat Module (import, from, as)
+            import namafile (kalo di file yang sama)
+            from namafile import namafungsi1, namafungsi2
+            as kegunaannya sebagai alias misal: import namafile as nf
+
+        (folder berbeda) 
+            Cara membuat & mengakses package
+            package itu folder yang berisi module jadi cara aksesnya 
+            import namafolder.namafile (<- misal didalam file terdapat fungsi)
+                variabel = namafolder.namafile.namafungsi
+            from namafolder import namafile
+            from namafolder.namafile import namafungsi 
+                variabel = namafile.namafunsi (<- lebih ringkas dari import)
+
+        _pycache_ berisi bytecode supaya next time ngerun lagi program tidak ngambil
+        dari file awalnya lagi tapidari _pycache_, sehingga run time jadi lebih cepat
+
+        __init__.py fungsinya dieksekusi saat kita import package (rantai sambung nyambung)
+        misalkan ada package/folder berisi module a, b, c
+            jika pada program main folder tsb diimport seperti ini
+            import namafolder (langsung menggunakan module tersebut seperti ini)
+            variabel = namafolder.namafile.fungsi (<- ini gabisa dieksekusi karena program akan bingung ga ada namafile tsb.)
+
+            sehingga harus seperti ini (tanpa init)
+            import namafolder.namafile (agar bisa dieksekusi)
+            
+            jikalau pake init didalam file initnya dibuat
+            from . import namafile  (. itu artinya merefer ke folder tsb/ folder yang sama)
+            supaya di main filenya kita bisa menulis import namafolder.
+
+Python Accesing File
+        Open()
+            Membuat python dapat mengakses file menggunakan function open seperti ini
+            file = open("nama_file.txt") 
+            content = file.read() -> menyimpan isi file ke dalam variabel content berupa "string"
+
+            cara lain untuk membuka file seperti ini
+            with open("nama_file.txt") as file:
+                #isinya
+                #kita gaperlu close()
+
+        Close()
+            Setelah python membuka suatu file, pada dasarnya itu akan memakan beberapa source dari pc kita
+            dan suatu saat python dapat membersihkan source itu namun kita tidak tahu kapan, jadi kita manual aja.
+            file.close()
+        
+        write()
+            untuk membuat python menulis pada file kita dapat dibuat seprti ini
+            sebagai default ketika kita open file mode terset pada read mode sehingga tidak bisa diubah
+                default -> with open("namafile.txt", mode = "r") as file:
+                kita perlu mengganti modenya menjadi "w" 
+                    
+            setelah itu baru kita dapat menggunakan method write
+                file.write("new text.") # perhatikan bahwa disini text tersebut akan ditambahkan ke file kita
+                namun semua text yang tadinya ada langsung terhapus.
+                jika nama file tersebut tidak ada maka python akan membuatkan file baru dengan nama tersebut.
+
+            jika kita tidak ingin menghapus semua textnya kita dapat mengubah modenya menjadi "a" yaitu append.
+            maka text baru akan ditambahkan pada garis terakhir/ tulisan terakhir pada file kita.
+
+Error and Exception
+    Python memiliki fungsi dimana kita dapat melakukan pengetesan semacam if and else, namun kita menggunakan kata kunci sebagai berikut
+    #try: -> something that might cause an exception
+    #except: -> kalo ada exception lakuin ini
+    #else: -> kalo ga ada exception lakuin ini
+    #finally: -> ini akan dijalankan apapun yang terjadi
+
+    Artinya disini adalah jika program dibawah ini (maksudnya dibawah kata kunci try/except/dll) mengalami error maka jalankan suatu program.
+    contoh kasus untuk error FileNotFound,
+    try:
+        file = open("afile.txt")
+        -> coba buka file ini kalo gada, throw exception 
+    except:
+        file = open("afile.txt","w")
+        -> buka file dengan mode "w", penjelasan mode w ada dibagian Accesing File.
+    
+            Sebisa mungkin kita menspesifikasikan exception yang kita buat, contoh kasus seperti ini
+            try:
+                file = open("afile.txt") -> asumsi disini afile.txt ada dan tidak menimbulkan error
+                dictcontoh = {"key1":"value1"}
+                print(dictcontoh["key2"]) -> dimana key2 disini tidak ada pada dictcontoh yang pastinya akan menimbulkan error
+            
+            except: -> jika kita perhatikan exception disini terlalu luas dalam arti, ia akan menangkap semua error dan apapun errornya lakukan file.open write something, ini bukan hal yang kita mau.
+                file = open("afile.txt", "w")
+                file.write("Something")
+
+            Jadi exception yang harus kita buat seperti ini.
+            except FileNotFoundError:
+                file = open("afile.txt","w")
+                file.write("Something")
+
+            dengan begini, exception yang dibuat lebih spesifik error apa yang ingin kita handle.
+            kita juga bisa membuat seperti ini untuk contoh try (line 321) diatas
+            except KeyError as error_message: 
+                print(f"The key {error_message} does not exist.")
+                hasilnya -> The key 'key2' does not exist.
+    
+    Kata kunci Else:
+        Hanya akan dijalankan jika dan hanya jika pada kode dibawah try: tidak memiliki error satupun
+        atau dapat dikatakan, jika program tidak pernah menjalankan except, maka else yang akan dijalankan.
+    
+    Kata kunci finally:
+        Akan dijalankan apapun yang terjadi error, exception, else, program dibawah finally akan tetap dijalankan.
+
+    Kata kunci raise:
+        kata kunci ini akan menimbulkan error, apapun jenis error yang kita mau tunjukan
+        raise TypeError
+        raise KeyError
+        raise FileNotFound
+        dan bahkan kita bisa memunculkan tulisan yang kita mau di errornya
+        raise TypeError("This is an error that i made up.")
+
+JSON Built-in Python
+    untuk menggunakannya kita tinggal import json.
+    Write -> json.dump(namadict, data_file, indent=4)
+        data yang dimasukkan disini (namadict) berupa dictionary
+    Read -> json.load()
+        data yang dikeluarkan akan dikonvert ke dictnya python
+    Update -> json.update()
+        untuk mengupdate kita perlu load/read terlebih dahulu seperti berikut
+        data = json.load(data_file) -> data_file ini tergantung kita opennya as apa, with open("file.json", "r") as data_file:
+        data.update(newdata) -> di update
+        json.dump(data, data_file, indent = 4) -> baru ditulis ulang

@@ -1,0 +1,34 @@
+"""Sedikit terdapat perbedaan syntax antara python dan java dalam hal oop, 
+namun secara garis besar. OOP pada python kurang lebih sama dengan java"""
+
+    Field
+        Sama seperti procedural programming, pada python tidak diperlukan inisialisasi seperti di java/c++
+        jadi kalau biasanya sebelum constructor terdapat public String name; lalu kemudian pada constructor baru terdapat this.name = name
+        pada python langsung constructor saja self.name = name
+
+        Permasalahannya adalah jika pada java kita mendeklarasikan name (harus berupa string), sehingga jika kita membuat objek dan mengisi parameter untuk constructornya bukan string maka error
+        pada python variabel tersebut bisa saja masuk dan diassign sebagai name untuk objek tersebut.
+
+
+    Constructor
+        Pada java pembuatan constructor dengan menggunakan fungsi yang memiliki nama yang sama dengan classnya
+            class namaClass:
+                namaClass(parameter){
+                }
+        sementara pada python menggunakan __init__, karena constructor juga merupakan fungsi 'khusus'
+            class namaClass:
+                def __init__(self):
+                    #initialisasi attribut
+
+    Inheritance
+        Untuk menghinherit pada python menggunakan cara ini:
+        class Subclass(Superclass):
+            def __init__(self):
+                super().__init__()  -> untuk mengakses constructor superclassnya
+
+        Overriding (mirip python decorator) sebuah method dari superclass dengan cara
+            super().namamethoddarisuperclass() -> jika ingin menambahkan
+            atau kita juga bisa menimpa method superclass dengan membuat method khusus dengan nama yang sama 
+            pada subclass.
+
+    

@@ -1,0 +1,44 @@
+#red{
+    font-weight: 200;
+    color:red;
+}
+img[alt="red"]{
+    height: 200px;
+    width: 200px;
+}
+
+#blue{
+    font-weight: 200;
+    color:blue;
+}
+img[alt="blue"]{
+    height: 200px;
+    width: 200px;
+}
+
+#orange{
+    font-weight: 200;
+    color:orange;
+}
+img[alt="orange"]{
+    height: 200px;
+    width: 200px;
+}
+
+#green{
+    font-weight: 200;
+    color:green;
+}
+img[alt="green"]{
+    height: 200px;
+    width: 200px;
+}
+
+#yellow{
+    font-weight: 200;
+    color:yellow;
+}
+img[alt="yellow"]{
+    height: 200px;
+    width: 200px;
+}
