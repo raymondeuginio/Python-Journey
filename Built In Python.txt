@@ -411,3 +411,5 @@ JSON Built-in Python.
         data = json.load(data_file) -> data_file ini tergantung kita opennya as apa, with open("file.json", "r") as data_file:
         data.update(newdata) -> di update
         json.dump(data, data_file, indent = 4) -> baru ditulis ulang
+
+remon
